@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/styles.css') }}">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h2>URL Shortener</h2>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="error-messages">
+                {% for message in messages %}
+                    {{ message }}<br>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <form action="{{ url_for('shorten_url') }}" method="post">
+        <label for="url">Enter a long URL</label>
+        <div class="input-container">
+            <input type="text" name="url" id="url"  placeholder="https://www.example.com" autocomplete="one-time-code" required>
+            <button class="paste-button" type="button" onclick="pasteFromClipboard()">
+                <img src="{{ url_for('static', filename='img/paste.png') }}" alt="Paste">
+            </button>
+        </div>
+        <button type="submit" onclick="shortenUrl()">Shorten URL</button>
+    </form>
+    {% if shortened_url %}
+    <div id="result-container">
+        <div class="result-box">
+            <h1>Shortened URL</h1>
+            <a id="shortened-url" href="{{shortened_url}}" target="_blank">{{shortened_url}}</a>
+            <button type="button" onclick="copyToClipboard()">
+                <img src="{{ url_for('static', filename='img/copy.png') }}" alt="Copy">
+            </button>
+            <span class="tooltip" id="copy-tooltip">Copied!</span>
+            <div class="hash-container">
+                <h1>Hash ➡</h1>
+                <p>{{ hash }}</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
