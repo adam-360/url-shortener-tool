@@ -7,22 +7,20 @@ https://www.amazon.com/DevOps-Handbook-Second-World-Class-Organizations/dp/B09L5
 Would be shortened to: http://127.0.0.1:5000/08d44e68
 ![Alt text](server/static/img/url-shortener-tool.png "URL Shortener")
 
-Install dependencies by running:
-    pip install -r requirements.txt
+Install dependencies by running: <br />
+&emsp; &ensp;  pip install -r requirements.txt
 
 To run the app, simply execute the following commands in a terminal <br />
-    cd server/ <br />
-    flask run <br />
+&emsp; &ensp;  cd server/ <br />
+&emsp; &ensp;  flask run <br />
 
-Set up redis DB <br />
-Note: this project is only available locally <br />
-For windows <br />
-    Follow the instructions on this page: https://redis.io/docs/install/install-redis/install-redis-on-windows/ <br />
-
-make sure the redis server is started by executing the following command: <br />
-    redis-server
-
-note: the delete route is not accessible through the web UI. You need to use tools to make external requests (e.g. via curl) to access it.
-
-To run tests, use the following command: <br />
-python -m pytest tests/
+<h4>Set up redis DB (Note: this project is only available locally)</h4>
+<h5>Windows</h5>
+Follow the instructions on this page: https://redis.io/docs/install/install-redis/install-redis-on-windows/
+<h5>Linux</h5>
+Follow the instructions on this page: https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-linux/ <br />
+<br />
+Make sure the redis server is started by executing the following command: <br />
+&emsp; &ensp;  redis-server 
+<br />
+Note: the delete route is not accessible through the web UI. You need to use tools to make external requests (e.g. via curl) to access it.
